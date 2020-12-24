@@ -27,8 +27,8 @@ SECRET_KEY = '6mn*l&1lgl8*3qe^5pcem0p$=g)(3lyq5#%(luiq2ornjs_sv6'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    #'med-linebot.herokuapp.com'  #允許的網域名稱
-    'b4f1d7fb6eb4.ngrok.io'
+    'med-linebot.herokuapp.com'  #允許的網域名稱
+    #'b4f1d7fb6eb4.ngrok.io'
 ]
 
 
@@ -47,7 +47,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
