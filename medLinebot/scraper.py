@@ -49,8 +49,8 @@ class MyBest(Cosmetic):
         cards = soup.find_all('div', {'class': 'p-press__part js-parts','data-type':'item_part'})
         content = ""
         for card in cards:
-            '''rank = card.find("div",{"class": "c-badge-rank--default"}).getText()
-            if(rank == "PR"):
+            rank = card.find("div",{"class": "c-badge-rank--default"}).getText()
+            '''if(rank == "PR"):
                 continue'''
 
             name = card.find("h3").getText()
@@ -59,8 +59,8 @@ class MyBest(Cosmetic):
  
             # expalin = card.find(  ).getText()
             info = card.select('tr')
-            content += f"{name} \n{price}\n\n"
-            #content += f"{rank}\n{name} \n{price}\n\n"
+            #content += f"{name} \n{price}\n\n"
+            content += f"{rank}\n{name} \n{price}\n\n"
             if(len(info) < 0):
               pass
             else:
