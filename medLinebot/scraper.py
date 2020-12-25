@@ -18,7 +18,6 @@ class Cosmetic(ABC):
 class MyBest(Cosmetic):
  
     def scrape(self):
-        def scrape(self):
         convert = ''
         if(self.type == "foundation"):
             convert = '131'
