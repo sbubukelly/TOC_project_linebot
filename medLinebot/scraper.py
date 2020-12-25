@@ -49,18 +49,24 @@ class MyBest(Cosmetic):
         cards = soup.find_all('div', {'class': 'p-press__part js-parts','data-type':'item_part'})
         content = ""
         for card in cards:
-            rank = card.find("div",{"class": "c-badge-rank--default"}).getText()
-            '''if(rank == "PR"):
-                continue'''
-
+            rank = card.find("div",{"class": "c-badge-rank--default"})
+            if(rank == None):
+                rank = card.find("div",{"class": "c-badge-rank--bronze"})
+                if(rank == None):
+                    rank = card.find("div",{"class": "c-badge-rank--silver"})
+                    if(rank == None):
+                        rank = card.find("div",{"class": "c-badge-rank--gold"})
+            elif(rank.getText() == "PR"):
+                continue
+            #print(rank)
             name = card.find("h3").getText()
  
             price = card.find( "p", {"class": "c-panel__price"}).getText()
  
             # expalin = card.find(  ).getText()
             info = card.select('tr')
-            content += f"{name} \n{price}\n\n"
-            #content += f"{rank}\n{name} \n{price}\n\n"
+            #content += f"{name} \n{price}\n\n"
+            content += f"{rank.getText()}\n{name} \n{price}\n\n"
             if(len(info) < 0):
               pass
             else:
@@ -71,4 +77,5 @@ class MyBest(Cosmetic):
             #content = f"{name} \n\n"
             #print(content)
         return content
-        
+cosmetic = MyBest("foundation")
+print(cosmetic.scrape())
