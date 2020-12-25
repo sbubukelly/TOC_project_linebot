@@ -8,30 +8,6 @@ class Cosmetic(ABC):
  
     def __init__(self, type):
         self.type =type #化妝品種類
- 
-    def convert(type):
-        if(self.type == "foundation"):
-            return '131'
-        elif(self.type == "lipstick"):
-            return '1193'
-        elif(self.type == "blush"):
-            return '114956'    
-        elif(self.type == "eyebrow"):
-            return '114944'
-        elif(self.type == "palette"):
-            return '12653'
-        elif(self.type == "PrPowder"):   # Pressed  Powder
-            return '68880'
-        elif(self.type == "contour"):
-            return '6151'
-        elif(self.type == "mascara"):
-            return '4730'
-        elif(self.type == "eyeliner"):
-            return '1684'
-        elif(self.type == "mascara"):
-            return '4730'
-        elif(self.type == "concealer"):
-            return '472'
 
     @abstractmethod
     def scrape(self):
@@ -42,7 +18,32 @@ class Cosmetic(ABC):
 class MyBest(Cosmetic):
  
     def scrape(self):
-        response = requests.get("https://my-best.tw/" + convert(self.type) )
+        def scrape(self):
+        convert = ''
+        if(self.type == "foundation"):
+            convert = '131'
+        elif(self.type == "lipstick"):
+            convert = '1193'
+        elif(self.type == "blush"):
+            convert = '114956'    
+        elif(self.type == "eyebrow"):
+            convert = '114944'
+        elif(self.type == "palette"):
+            convert = '12653'
+        elif(self.type == "PrPowder"):   # Pressed  Powder
+            convert = '68880'
+        elif(self.type == "contour"):
+            convert = '6151'
+        elif(self.type == "mascara"):
+            convert = '4730'
+        elif(self.type == "eyeliner"):
+            convert = '1684'
+        elif(self.type == "mascara"):
+            convert = '4730'
+        elif(self.type == "concealer"):
+            convert = '472'
+
+        response = requests.get("https://my-best.tw/" + convert )
  
         soup = BeautifulSoup(response.content, "html.parser")
         
@@ -55,7 +56,7 @@ class MyBest(Cosmetic):
  
             # expalin = card.find(  ).getText()
             info = card.select('tr')
-            content = f"{name} \n{price}\n\n"
+            content += f"{name} \n{price}\n\n"
             if(len(info) < 0):
               pass
             else:
@@ -64,6 +65,6 @@ class MyBest(Cosmetic):
    
             content += "\n"
             #content = f"{name} \n\n"
-            print(content)
-            return content
+            #print(content)
+        return content
         
