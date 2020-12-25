@@ -59,8 +59,8 @@ class MyBest(Cosmetic):
  
             # expalin = card.find(  ).getText()
             info = card.select('tr')
-            #content += f"{name} \n{price}\n\n"
-            content += f"{rank}\n{name} \n{price}\n\n"
+            content += f"{name} \n{price}\n\n"
+            #content += f"{rank}\n{name} \n{price}\n\n"
             if(len(info) < 0):
               pass
             else:
