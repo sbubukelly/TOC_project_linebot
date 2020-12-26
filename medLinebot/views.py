@@ -38,6 +38,7 @@ def callback(request):
             if isinstance(event, MessageEvent):  # 如果有訊息事件
                 
                 if event.message.text == "繼續":
+                    '''
                     line_bot_api.reply_message(  
                         event.reply_token,
                         TemplateSendMessage(
@@ -94,6 +95,34 @@ def callback(request):
                                         label='遮瑕',
                                         text='遮瑕',
                                         data='A&concealer'
+                                    )
+                                ]
+                            )
+                        )
+                    )
+                    '''
+                    line_bot_api.reply_message(  # 回復「選擇地區」按鈕樣板訊息
+                        event.reply_token,
+                        TemplateSendMessage(
+                            alt_text='Buttons template',
+                            template=ButtonsTemplate(
+                                title='Menu',
+                                text='請選擇地區',
+                                actions=[
+                                    PostbackTemplateAction(
+                                        label='台北市',
+                                        text='台北市',
+                                        data='A&台北市'
+                                    ),
+                                    PostbackTemplateAction(
+                                        label='台中市',
+                                        text='台中市',
+                                        data='A&台中市'
+                                    ),
+                                    PostbackTemplateAction(
+                                        label='高雄市',
+                                        text='高雄市',
+                                        data='A&高雄市'
                                     )
                                 ]
                             )
