@@ -64,7 +64,7 @@ def callback(request):
                                     PostbackTemplateAction(
                                         label='更多',
                                         text='更多',
-                                        data='p1&more'
+                                        data='B&more'
                                     )
 
                                 ]
@@ -125,7 +125,7 @@ def callback(request):
                     )
                     '''
             
-            elif event.postback.data[0:1] == "p1":  # 如果有回傳值事件
+            elif event.postback.data[0:1] == "B":  # 如果有回傳值事件
                     
                         line_bot_api.reply_message(  
                         event.reply_token,
