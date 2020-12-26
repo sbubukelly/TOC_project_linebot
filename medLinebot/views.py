@@ -47,18 +47,18 @@ def callback(request):
                                 text='請選擇種類',
                                 actions=[
                                     PostbackTemplateAction(
-                                        label='foundation',
-                                        text='粉底',
+                                        label='粉底',
+                                        text='foundation',
                                         data='A&foundation'
                                     ),
                                     PostbackTemplateAction(
                                         label='口紅',
-                                        text='口紅',
+                                        text='lipstick',
                                         data='A&lipstick'
                                     ),
                                     PostbackTemplateAction(
                                         label='腮紅',
-                                        text='腮紅',
+                                        text='blush',
                                         data='A&blush'
                                     ),
                                     PostbackTemplateAction(
@@ -82,17 +82,17 @@ def callback(request):
                                 actions=[
                                     PostbackTemplateAction(
                                         label='眉筆',
-                                        text='眉筆',
+                                        text='eyebrow',
                                         data='A&eyebrow'
                                     ),
                                     PostbackTemplateAction(
                                         label='眼影盤',
-                                        text='眼影盤',
+                                        text='palette',
                                         data='A&palette'
                                     ),
                                     PostbackTemplateAction(
                                         label='蜜粉餅',
-                                        text='蜜粉餅',
+                                        text='PrPoweder',
                                         data='A&PrPoweder'
                                     ),
                                     PostbackTemplateAction(
@@ -116,22 +116,22 @@ def callback(request):
                                 actions=[
                                     PostbackTemplateAction(
                                         label='修容',
-                                        text='修容',
+                                        text='contour',
                                         data='A&contour'
                                     ),
                                     PostbackTemplateAction(
                                         label='睫毛膏',
-                                        text='睫毛膏',
+                                        text='mascara',
                                         data='A&mascara'
                                     ),
                                     PostbackTemplateAction(
                                         label='眼線',
-                                        text='眼線',
+                                        text='eyeliner',
                                         data='A&eyeliner'
                                     ),
                                     PostbackTemplateAction(
                                         label='遮瑕',
-                                        text='遮瑕',
+                                        text='concealer',
                                         data='A&concealer'
                                     )
                                 ]
