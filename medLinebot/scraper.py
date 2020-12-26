@@ -37,8 +37,6 @@ class MyBest(Cosmetic):
             convert = '4730'
         elif(self.type == "eyeliner"):
             convert = '1684'
-        elif(self.type == "mascara"):
-            convert = '4730'
         elif(self.type == "concealer"):
             convert = '472'
 
@@ -77,5 +75,5 @@ class MyBest(Cosmetic):
             #content = f"{name} \n\n"
             #print(content)
         return content
-cosmetic = MyBest("foundation")
-print(cosmetic.scrape())
+#cosmetic = MyBest("foundation")
+#print(cosmetic.scrape())
