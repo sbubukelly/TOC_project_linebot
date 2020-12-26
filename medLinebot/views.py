@@ -47,7 +47,7 @@ def callback(request):
                                 text='請選擇種類',
                                 actions=[
                                     PostbackTemplateAction(
-                                        label='粉底',
+                                        label='foundation',
                                         text='粉底',
                                         data='A&foundation'
                                     ),
@@ -64,14 +64,16 @@ def callback(request):
                                     PostbackTemplateAction(
                                         label='更多',
                                         text='更多',
-                                        data='B&more'
+                                        data='p1&more'
                                     )
 
                                 ]
                             )
                         )
                     )
-                    line_bot_api.reply_message(  
+            
+            elif event.postback.data[0:2] == "p1":  
+                line_bot_api.reply_message(  
                         event.reply_token,
                         TemplateSendMessage(
                             alt_text='Buttons template',
@@ -102,10 +104,16 @@ def callback(request):
                                 ]
                             )
                         )
-                    )
-                    
-                    '''
-                                    
+                    )    
+                        
+            elif event.postback.data[0:2] == "p2":
+                line_bot_api.reply_message(  
+                        event.reply_token,
+                        TemplateSendMessage(
+                            alt_text='Buttons template',
+                            template=ButtonsTemplate(
+                                text='請選擇種類',
+                                actions=[
                                     PostbackTemplateAction(
                                         label='修容',
                                         text='修容',
@@ -126,36 +134,12 @@ def callback(request):
                                         text='遮瑕',
                                         data='A&concealer'
                                     )
-
-                    line_bot_api.reply_message(  # 回復「選擇地區」按鈕樣板訊息
-                        event.reply_token,
-                        TemplateSendMessage(
-                            alt_text='Buttons template',
-                            template=ButtonsTemplate(
-                                title='Menu',
-                                text='請選擇地區',
-                                actions=[
-                                    PostbackTemplateAction(
-                                        label='台北市',
-                                        text='台北市',
-                                        data='A&台北市'
-                                    ),
-                                    PostbackTemplateAction(
-                                        label='台中市',
-                                        text='台中市',
-                                        data='A&台中市'
-                                    ),
-                                    PostbackTemplateAction(
-                                        label='高雄市',
-                                        text='高雄市',
-                                        data='A&高雄市'
-                                    )
                                 ]
                             )
                         )
                     )
-                    '''
-                else:
+                
+            else:
                     cosmetic = MyBest(event.message.text)  #使用者傳入的訊息文字
  
                     line_bot_api.reply_message(  
