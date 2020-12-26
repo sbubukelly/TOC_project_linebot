@@ -5,8 +5,7 @@ from django.conf import settings
  
 from linebot import LineBotApi, WebhookParser
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
-from linebot.models import 
-(
+from linebot.models import (
     MessageEvent,
     TextSendMessage,
     TemplateSendMessage,
@@ -46,45 +45,45 @@ def callback(request):
                                 actions=[
                                     MessageTemplateAction(
                                         label='粉底',
-                                        text='粉底'
+                                        text='粉底',
                                         data='A&foundation'
                                     ),
                                     MessageTemplateAction(
                                         label='口紅',
-                                        text='口紅'
+                                        text='口紅',
                                         data='A&lipstick'
                                     ),
                                     MessageTemplateAction(
                                         label='腮紅',
-                                        text='腮紅'
+                                        text='腮紅',
                                         data='A&blush'
                                     ),MessageTemplateAction(
                                         label='眉筆',
-                                        text='眉筆'
+                                        text='眉筆',
                                         data='A&eyebrow'
                                     ),MessageTemplateAction(
                                         label='眼影盤',
-                                        text='眼影盤'
+                                        text='眼影盤',
                                         data='A&palette'
                                     ),MessageTemplateAction(
                                         label='蜜粉餅',
-                                        text='蜜粉餅'
+                                        text='蜜粉餅',
                                         data='A&PrPoweder'
                                     ),MessageTemplateAction(
                                         label='修容',
-                                        text='修容'
+                                        text='修容',
                                         data='A&contour'
                                     ),MessageTemplateAction(
                                         label='睫毛膏',
-                                        text='睫毛膏'
+                                        text='睫毛膏',
                                         data='A&mascara'
                                     ),MessageTemplateAction(
                                         label='眼線',
-                                        text='眼線'
+                                        text='眼線',
                                         data='A&eyeliner'
                                     ),MessageTemplateAction(
                                         label='遮瑕',
-                                        text='遮瑕'
+                                        text='遮瑕',
                                         data='A&concealer'
                                     )
                                 ]
