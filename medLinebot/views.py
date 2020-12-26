@@ -71,7 +71,38 @@ def callback(request):
                             )
                         )
                     )
-                    
+                    line_bot_api.reply_message(  
+                        event.reply_token,
+                        TemplateSendMessage(
+                            alt_text='Buttons template',
+                            template=ButtonsTemplate(
+                                text='請選擇種類',
+                                actions=[
+                                    PostbackTemplateAction(
+                                        label='眉筆',
+                                        text='眉筆',
+                                        data='A&eyebrow'
+                                    ),
+                                    PostbackTemplateAction(
+                                        label='眼影盤',
+                                        text='眼影盤',
+                                        data='A&palette'
+                                    ),
+                                    PostbackTemplateAction(
+                                        label='蜜粉餅',
+                                        text='蜜粉餅',
+                                        data='A&PrPoweder'
+                                    ),
+                                    PostbackTemplateAction(
+                                        label='更多',
+                                        text='更多',
+                                        data='p2&more'
+                                    )
+
+                                ]
+                            )
+                        )
+                    )
                     
                     '''
                                     
@@ -124,7 +155,7 @@ def callback(request):
                         )
                     )
                     '''
-            
+            '''
             elif event.postback.data[0:1] == "B":  # 如果有回傳值事件
                     
                         line_bot_api.reply_message(  
@@ -159,6 +190,7 @@ def callback(request):
                             )
                         )
                     )
+            '''
 
             else:
                     cosmetic = MyBest(event.message.text)  #使用者傳入的訊息文字
