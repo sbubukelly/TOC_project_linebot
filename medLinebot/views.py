@@ -124,7 +124,8 @@ def callback(request):
                         )
                     )
                     '''
-                elif isinstance(event, PostbackEvent):  # 如果有回傳值事件
+            
+            elif isinstance(event, PostbackEvent):  # 如果有回傳值事件
                     if event.postback.data[0:1] == "p1":
                         line_bot_api.reply_message(  
                         event.reply_token,
@@ -159,7 +160,7 @@ def callback(request):
                         )
                     )
 
-                else:
+            else:
                     cosmetic = MyBest(event.message.text)  #使用者傳入的訊息文字
  
                     line_bot_api.reply_message(  
