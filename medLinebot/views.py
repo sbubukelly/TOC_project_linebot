@@ -37,8 +37,8 @@ def callback(request):
         for event in events:
             if isinstance(event, MessageEvent):  # 如果有訊息事件
                 
-                if event.message.text == "繼續":
-                    '''
+                if event.message.text == "開始":
+
                     line_bot_api.reply_message(  
                         event.reply_token,
                         TemplateSendMessage(
@@ -62,20 +62,19 @@ def callback(request):
                                         data='A&blush'
                                     ),
                                     PostbackTemplateAction(
-                                        label='眉筆',
-                                        text='眉筆',
-                                        data='A&eyebrow'
-                                    ),
-                                    PostbackTemplateAction(
-                                        label='眼影盤',
-                                        text='眼影盤',
-                                        data='A&palette'
-                                    ),
-                                    PostbackTemplateAction(
-                                        label='蜜粉餅',
-                                        text='蜜粉餅',
-                                        data='A&PrPoweder'
-                                    ),
+                                        label='更多',
+                                        text='更多',
+                                        data='p1&more'
+                                    )
+
+                                ]
+                            )
+                        )
+                    )
+                    
+                    
+                    '''
+                                    
                                     PostbackTemplateAction(
                                         label='修容',
                                         text='修容',
@@ -96,11 +95,7 @@ def callback(request):
                                         text='遮瑕',
                                         data='A&concealer'
                                     )
-                                ]
-                            )
-                        )
-                    )
-                    '''
+
                     line_bot_api.reply_message(  # 回復「選擇地區」按鈕樣板訊息
                         event.reply_token,
                         TemplateSendMessage(
@@ -124,6 +119,41 @@ def callback(request):
                                         text='高雄市',
                                         data='A&高雄市'
                                     )
+                                ]
+                            )
+                        )
+                    )
+                    '''
+                elif isinstance(event, PostbackEvent):  # 如果有回傳值事件
+                    if event.postback.data[0:1] == "p1":
+                        line_bot_api.reply_message(  
+                        event.reply_token,
+                        TemplateSendMessage(
+                            alt_text='Buttons template',
+                            template=ButtonsTemplate(
+                                text='請選擇種類',
+                                actions=[
+                                    PostbackTemplateAction(
+                                        label='眉筆',
+                                        text='眉筆',
+                                        data='A&eyebrow'
+                                    ),
+                                    PostbackTemplateAction(
+                                        label='眼影盤',
+                                        text='眼影盤',
+                                        data='A&palette'
+                                    ),
+                                    PostbackTemplateAction(
+                                        label='蜜粉餅',
+                                        text='蜜粉餅',
+                                        data='A&PrPoweder'
+                                    ),
+                                    PostbackTemplateAction(
+                                        label='更多',
+                                        text='更多',
+                                        data='p2&more'
+                                    )
+
                                 ]
                             )
                         )
