@@ -10,7 +10,9 @@ from linebot.models import (
     TextSendMessage,
     TemplateSendMessage,
     ButtonsTemplate,
-    MessageTemplateAction
+    MessageTemplateAction,
+    PostbackEvent,
+    PostbackTemplateAction
 )
 from .scraper import MyBest
 
@@ -36,52 +38,59 @@ def callback(request):
             if isinstance(event, MessageEvent):  # 如果有訊息事件
                 
                 if event.message.text == "繼續":
-                    line_bot_api.reply_message(  # 回復傳入的訊息文字
+                    line_bot_api.reply_message(  
                         event.reply_token,
                         TemplateSendMessage(
                             alt_text='Buttons template',
                             template=ButtonsTemplate(
                                 text='請選擇種類',
                                 actions=[
-                                    MessageTemplateAction(
+                                    PostbackTemplateAction(
                                         label='粉底',
                                         text='粉底',
                                         data='A&foundation'
                                     ),
-                                    MessageTemplateAction(
+                                    PostbackTemplateAction(
                                         label='口紅',
                                         text='口紅',
                                         data='A&lipstick'
                                     ),
-                                    MessageTemplateAction(
+                                    PostbackTemplateAction(
                                         label='腮紅',
                                         text='腮紅',
                                         data='A&blush'
-                                    ),MessageTemplateAction(
+                                    ),
+                                    PostbackTemplateAction(
                                         label='眉筆',
                                         text='眉筆',
                                         data='A&eyebrow'
-                                    ),MessageTemplateAction(
+                                    ),
+                                    PostbackTemplateAction(
                                         label='眼影盤',
                                         text='眼影盤',
                                         data='A&palette'
-                                    ),MessageTemplateAction(
+                                    ),
+                                    PostbackTemplateAction(
                                         label='蜜粉餅',
                                         text='蜜粉餅',
                                         data='A&PrPoweder'
-                                    ),MessageTemplateAction(
+                                    ),
+                                    PostbackTemplateAction(
                                         label='修容',
                                         text='修容',
                                         data='A&contour'
-                                    ),MessageTemplateAction(
+                                    ),
+                                    PostbackTemplateAction(
                                         label='睫毛膏',
                                         text='睫毛膏',
                                         data='A&mascara'
-                                    ),MessageTemplateAction(
+                                    ),
+                                    PostbackTemplateAction(
                                         label='眼線',
                                         text='眼線',
                                         data='A&eyeliner'
-                                    ),MessageTemplateAction(
+                                    ),
+                                    PostbackTemplateAction(
                                         label='遮瑕',
                                         text='遮瑕',
                                         data='A&concealer'
