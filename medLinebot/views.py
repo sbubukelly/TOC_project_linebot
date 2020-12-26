@@ -139,8 +139,8 @@ def callback(request):
                         )
                     )
                 
-            else:
-                    cosmetic = MyBest(event.message.text)  #使用者傳入的訊息文字
+            elif event.postback.data[0:1] == "A":
+                    cosmetic = MyBest(event.postback.data[2:])  #使用者傳入的訊息文字
  
                     line_bot_api.reply_message(  
                         event.reply_token,
