@@ -125,8 +125,8 @@ def callback(request):
                     )
                     '''
             
-            elif isinstance(event, PostbackEvent):  # 如果有回傳值事件
-                    if event.postback.data[0:1] == "p1":
+            elif event.postback.data[0:1] == "p1"::  # 如果有回傳值事件
+                    
                         line_bot_api.reply_message(  
                         event.reply_token,
                         TemplateSendMessage(
