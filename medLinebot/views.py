@@ -10,6 +10,10 @@ from linebot.models import (
     TextSendMessage,
     TemplateSendMessage,
     ButtonsTemplate,
+    CarouselTemplate,
+    CarouselColumn,
+    ImageCarouselColumn,
+    ImageCarouselTemplate,
     MessageTemplateAction,
     PostbackEvent,
     PostbackTemplateAction
@@ -45,6 +49,8 @@ def callback(request):
                             alt_text='Buttons template',
                             template=ButtonsTemplate(
                                 thumbnail_image_url='https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=765&q=80',
+                                image_aspect_ratio: "rectangle",
+                                image_size=: "cover",
                                 text='請選擇種類',
                                 actions=[
                                     PostbackTemplateAction(
@@ -79,6 +85,9 @@ def callback(request):
                         TemplateSendMessage(
                             alt_text='Buttons template',
                             template=ButtonsTemplate(
+                                thumbnail_image_url='https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=765&q=80',
+                                image_aspect_ratio: "rectangle",
+                                image_size=: "cover",
                                 text='請選擇種類',
                                 actions=[
                                     PostbackTemplateAction(
@@ -113,6 +122,9 @@ def callback(request):
                         TemplateSendMessage(
                             alt_text='Buttons template',
                             template=ButtonsTemplate(
+                                thumbnail_image_url='https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=765&q=80',
+                                image_aspect_ratio: "rectangle",
+                                image_size=: "cover",
                                 text='請選擇種類',
                                 actions=[
                                     PostbackTemplateAction(
@@ -142,11 +154,32 @@ def callback(request):
                 
             elif event.postback.data[0:1] == "A":
                     cosmetic = MyBest(event.postback.data[2:])  #使用者傳入的訊息文字
- 
+                    '''
                     line_bot_api.reply_message(  
                         event.reply_token,
                         TextSendMessage(text=cosmetic.scrape())
                     )
+                    '''
+                    line_bot_api.reply_message(  
+                        event.reply_token,
+                        TemplateSendMessage(
+                            alt_text='carousel template',
+                            template=CarouselTemplate(
+                                columns=[
+                                    CarouselColumn(
+                                        thumbnail_image_url=cosmetic.scrape('img')[9],
+                                        title= cosmetic.scrape('rank')[9] + "\n" +cosmetic.scrape('name')[9],      #rank + brand + name
+                                        text=cosmetic.scrape('price')[9],        #price 
+                                        actions=[
+                                            PostbackTemplateAction(
+                                                label='postback1',
+                                                text='postback text1',
+                                                data='action=buy&itemid=1'
+                                            )
+                                        ]
+                                    )
+                                ]
+                            )
                 
         return HttpResponse()
     else:

@@ -16,8 +16,7 @@ class Cosmetic(ABC):
  
 # My best爬蟲
 class MyBest(Cosmetic):
- 
-    def scrape(self):
+    def scrape(self, element):
         convert = ''
         if(self.type == "foundation"):
             convert = '131'
@@ -46,25 +45,34 @@ class MyBest(Cosmetic):
         
         cards = soup.find_all('div', {'class': 'p-press__part js-parts','data-type':'item_part'})
         content = ""
+        name =[]
+        brand = []
+        rank = []
+        price = []
+        img_url = []
+        temp = ''
         for card in cards:
-            rank = card.find("div",{"class": "c-badge-rank--default"})
-            if(rank == None):
-                rank = card.find("div",{"class": "c-badge-rank--bronze"})
-                if(rank == None):
-                    rank = card.find("div",{"class": "c-badge-rank--silver"})
-                    if(rank == None):
-                        rank = card.find("div",{"class": "c-badge-rank--gold"})
-            elif(rank.getText() == "PR"):
+            temp = card.find("div",{"class": "c-badge-rank--default"})
+            if(temp == None):
+                temp = card.find("div",{"class": "c-badge-rank--bronze"})
+                if(temp == None):
+                    temp = card.find("div",{"class": "c-badge-rank--silver"})
+                    if(temp == None):
+                        temp = card.find("div",{"class": "c-badge-rank--gold"})
+            elif(temp.getText() == "PR"):
                 continue
+            rank.append(temp.getText())
             #print(rank)
-            name = card.find("h3").getText()
+            name.append(card.find("span",{"class": "c-panel__heading"}).getText())
+            brand.append(card.find("span",{"class": "c-panel__sub-text"}).getText())
  
-            price = card.find( "p", {"class": "c-panel__price"}).getText()
+            price.append(card.find( "p", {"class": "c-panel__price"}).getText())
  
+            img_url.append(card.find("img").get("data-original"))
             # expalin = card.find(  ).getText()
             info = card.select('tr')
             #content += f"{name} \n{price}\n\n"
-            content += f"{rank.getText()}\n{name} \n{price}\n\n"
+            #content += f"{rank.getText()}\n{name} \n{price}\n\n"
             if(len(info) < 0):
               pass
             else:
@@ -74,6 +82,21 @@ class MyBest(Cosmetic):
             content += "\n"
             #content = f"{name} \n\n"
             #print(content)
-        return content
-#cosmetic = MyBest("foundation")
-#print(cosmetic.scrape())
+        if(element == 'brand'):
+            return brand
+        elif(element == 'name'):
+            return name
+        elif(element == 'price'):
+            return price
+        elif(element == 'rank'):
+            return rank
+        elif(element == 'img'):
+            return img_url
+        else:
+            return content
+ 
+cosmetic = MyBest("lipstick")
+print(cosmetic.scrape('brand')[5] + "\n")
+print(cosmetic.scrape('name')[5] + "\n")
+print(cosmetic.scrape('price')[5] + "\n")
+print(cosmetic.scrape('img')[5] + "\n")
