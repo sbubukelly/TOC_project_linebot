@@ -48,7 +48,6 @@ class MyBest(Cosmetic):
         contents = []
         name =''
         brand = ''
-        rank = ''
         price = ''
         img_url = ''
         url =''
