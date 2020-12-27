@@ -28,7 +28,7 @@ machine = TocMachine(
             "dest": "subMenu",
         },
         {"trigger": "go_back", "source": ["Menu1", "Menu2","Menu3","subMenu"], "dest": "user"},
-        {"trigger": "start", "source": ["user","Menu1", "Menu2","Menu3","subMenu"], "dest": "Menu1"},
+        {"trigger": "go_to_main_menu", "source": ["user","Menu1", "Menu2","Menu3","subMenu"], "dest": "Menu1"},
     ],
     initial="user",
     auto_transitions=False,

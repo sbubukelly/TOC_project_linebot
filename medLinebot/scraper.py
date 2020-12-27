@@ -103,7 +103,7 @@ class MyBest(Cosmetic):
         
         return contents 
 
-cosmetic = MyBest("foundation")
+cosmetic = MyBest("mascara")
 #print(cosmetic.scrape())
 temp=cosmetic.scrape()
 rank = []
@@ -118,7 +118,7 @@ for items in temp:
     name.append(item[1])
     price.append(item[2])
     img.append(item[3])
-print(img[9])
+print(brand[9])
 '''
 print(cosmetic.scrape('brand')[9] + "\n")
 print(cosmetic.scrape('name')[9] + "\n")
