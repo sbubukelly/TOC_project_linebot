@@ -103,7 +103,7 @@ def callback(request):
                                     PostbackTemplateAction(
                                         label='蜜粉餅',
                                         text='PrPoweder',
-                                        data='A&PrPoweder'
+                                        data='A&PrPowder'
                                     ),
                                     PostbackTemplateAction(
                                         label='更多',
