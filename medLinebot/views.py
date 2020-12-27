@@ -42,7 +42,7 @@ def callback(request):
         for event in events:
             
             if isinstance(event, MessageEvent):
-                if event.message.text == "開始":
+                if event.message.text == "目錄":
                     line_bot_api.reply_message(  
                         event.reply_token,
                         TemplateSendMessage(
@@ -270,7 +270,7 @@ def callback(request):
                                         ),
                                         CarouselColumn(
                                             thumbnail_image_url=img[8],
-                                            title=  "3."+"\n" +brand[8]+"\n"+name[8],      #rank + brand + name
+                                            title=  "2."+"\n" +brand[8]+"\n"+name[8],      #rank + brand + name
                                             text=price[8],        #price 
                                             actions=[
                                                 URITemplateAction(
@@ -281,7 +281,7 @@ def callback(request):
                                         ),
                                         CarouselColumn(
                                             thumbnail_image_url=img[7],
-                                            title=  "4."+"\n" +brand[7]+"\n"+name[7],      #rank + brand + name
+                                            title=  "3."+"\n" +brand[7]+"\n"+name[7],      #rank + brand + name
                                             text=price[7],        #price 
                                             actions=[
                                                 URITemplateAction(
@@ -292,7 +292,7 @@ def callback(request):
                                         ),
                                         CarouselColumn(
                                             thumbnail_image_url=img[6],
-                                            title=  "5."+"\n" +brand[6]+"\n"+name[6],      #rank + brand + name
+                                            title=  "4."+"\n" +brand[6]+"\n"+name[6],      #rank + brand + name
                                             text=price[6],        #price 
                                             actions=[
                                                 URITemplateAction(
@@ -303,7 +303,7 @@ def callback(request):
                                         ),
                                         CarouselColumn(
                                             thumbnail_image_url=img[5],
-                                            title=  "6."+"\n" +brand[5]+"\n"+name[5],      #rank + brand + name
+                                            title=  "5."+"\n" +brand[5]+"\n"+name[5],      #rank + brand + name
                                             text=price[5],        #price 
                                             actions=[
                                                 URITemplateAction(
@@ -314,7 +314,7 @@ def callback(request):
                                         ),
                                         CarouselColumn(
                                             thumbnail_image_url=img[4],
-                                            title=  "7."+"\n" +brand[4]+"\n"+name[4],      #rank + brand + name
+                                            title=  "6."+"\n" +brand[4]+"\n"+name[4],      #rank + brand + name
                                             text=price[4],        #price 
                                             actions=[
                                                 URITemplateAction(
@@ -325,7 +325,7 @@ def callback(request):
                                         ),
                                         CarouselColumn(
                                             thumbnail_image_url=img[3],
-                                            title=  "8."+"\n" +brand[3]+"\n"+name[3],      #rank + brand + name
+                                            title=  "7."+"\n" +brand[3]+"\n"+name[3],      #rank + brand + name
                                             text=price[3],        #price 
                                             actions=[
                                                 URITemplateAction(
@@ -336,7 +336,7 @@ def callback(request):
                                         ),
                                         CarouselColumn(
                                             thumbnail_image_url=img[2],
-                                            title=  "9."+"\n" +brand[2]+"\n"+name[2],      #rank + brand + name
+                                            title=  "8."+"\n" +brand[2]+"\n"+name[2],      #rank + brand + name
                                             text=price[2],        #price 
                                             actions=[
                                                 URITemplateAction(
@@ -347,7 +347,7 @@ def callback(request):
                                         ),
                                         CarouselColumn(
                                             thumbnail_image_url=img[1],
-                                            title=  "10."+"\n" +brand[1]+"\n"+name[1],      #rank + brand + name
+                                            title=  "9."+"\n" +brand[1]+"\n"+name[1],      #rank + brand + name
                                             text=price[1],        #price 
                                             actions=[
                                                 URITemplateAction(
@@ -358,7 +358,7 @@ def callback(request):
                                         ),
                                         CarouselColumn(
                                             thumbnail_image_url=img[0],
-                                            title=  "2."+"\n" +brand[0]+"\n"+name[0],      #rank + brand + name
+                                            title=  "10."+"\n" +brand[0]+"\n"+name[0],      #rank + brand + name
                                             text=price[0],        #price 
                                             actions=[
                                                 URITemplateAction(
@@ -419,7 +419,7 @@ def callback(request):
                                     ),
                                     CarouselColumn(
                                         thumbnail_image_url=img[7],
-                                        title=  "2."+"\n" +brand[7]+"\n"+name[7],      #rank + brand + name
+                                        title=  "3."+"\n" +brand[7]+"\n"+name[7],      #rank + brand + name
                                         text=price[7],        #price 
                                         actions=[
                                             URITemplateAction(
@@ -430,7 +430,7 @@ def callback(request):
                                     ),
                                     CarouselColumn(
                                         thumbnail_image_url=img[6],
-                                        title=  "2."+"\n" +brand[6]+"\n"+name[6],      #rank + brand + name
+                                        title=  "4."+"\n" +brand[6]+"\n"+name[6],      #rank + brand + name
                                         text=price[6],        #price 
                                         actions=[
                                             URITemplateAction(
@@ -441,7 +441,7 @@ def callback(request):
                                     ),
                                     CarouselColumn(
                                         thumbnail_image_url=img[5],
-                                        title=  "2."+"\n" +brand[5]+"\n"+name[5],      #rank + brand + name
+                                        title=  "5."+"\n" +brand[5]+"\n"+name[5],      #rank + brand + name
                                         text=price[5],        #price 
                                         actions=[
                                             URITemplateAction(
@@ -502,7 +502,7 @@ def callback(request):
                                     ),
                                     CarouselColumn(
                                         thumbnail_image_url=img[2],
-                                        title=  "2."+"\n" +brand[2]+"\n"+name[2],      #rank + brand + name
+                                        title=  "3."+"\n" +brand[2]+"\n"+name[2],      #rank + brand + name
                                         text=price[2],        #price 
                                         actions=[
                                             URITemplateAction(
@@ -513,7 +513,7 @@ def callback(request):
                                     ),
                                     CarouselColumn(
                                         thumbnail_image_url=img[1],
-                                        title=  "2."+"\n" +brand[1]+"\n"+name[1],      #rank + brand + name
+                                        title=  "4."+"\n" +brand[1]+"\n"+name[1],      #rank + brand + name
                                         text=price[1],        #price 
                                         actions=[
                                             URITemplateAction(
@@ -524,7 +524,7 @@ def callback(request):
                                     ),
                                     CarouselColumn(
                                         thumbnail_image_url=img[0],
-                                        title=  "2."+"\n" +brand[0]+"\n"+name[0],      #rank + brand + name
+                                        title=  "5."+"\n" +brand[0]+"\n"+name[0],      #rank + brand + name
                                         text=price[0],        #price 
                                         actions=[
                                             URITemplateAction(
@@ -539,88 +539,7 @@ def callback(request):
                     )
 
                 
-                    cosmetic = MyBest(event.postback.data[3:])  #使用者傳入的訊息文字
-                    brand = []
-                    name = []
-                    price = []
-                    img = []
-                    url = []
-                    temp = []
-                    temp=cosmetic.scrape()
-                    for items in temp:
-                        item = items.split("|")
-                        brand.append(item[0])
-                        name.append(item[1])
-                        price.append(item[2])
-                        img.append(item[3])
-                        url.append(item[4])
-                        
-                    line_bot_api.reply_message(  
-                        event.reply_token,
-                        TemplateSendMessage(
-                            alt_text='carousel template',
-                            template=CarouselTemplate(
-                                  columns=[
-                                    CarouselColumn(
-                                    thumbnail_image_url=img[4],
-                                        title=  "1."+"\n" +brand[4]+"\n"+name[4],      #rank + brand + name
-                                        text=price[4],        #price 
-                                        actions=[
-                                            URITemplateAction(
-                                                label='購買連結',
-                                                uri=url[4]
-                                            )
-                                        ]
-                                    ),
-                                    CarouselColumn(
-                                        thumbnail_image_url=img[3],
-                                        title=  "2."+"\n" +brand[3]+"\n"+name[3],      #rank + brand + name
-                                        text=price[3],        #price 
-                                        actions=[
-                                            URITemplateAction(
-                                                label='購買連結',
-                                                uri=url[3]
-                                            )
-                                        ]
-                                    ),
-                                    CarouselColumn(
-                                        thumbnail_image_url=img[2],
-                                        title=  "2."+"\n" +brand[2]+"\n"+name[2],      #rank + brand + name
-                                        text=price[2],        #price 
-                                        actions=[
-                                            URITemplateAction(
-                                                label='購買連結',
-                                                uri=url[2]
-                                            )
-                                        ]
-                                    ),
-                                    CarouselColumn(
-                                        thumbnail_image_url=img[1],
-                                        title=  "2."+"\n" +brand[1]+"\n"+name[1],      #rank + brand + name
-                                        text=price[1],        #price 
-                                        actions=[
-                                            URITemplateAction(
-                                                label='購買連結',
-                                                uri=url[1]
-                                            )
-                                        ]
-                                    ),
-                                    CarouselColumn(
-                                        thumbnail_image_url=img[0],
-                                        title=  "2."+"\n" +brand[0]+"\n"+name[0],      #rank + brand + name
-                                        text=price[0],        #price 
-                                        actions=[
-                                            URITemplateAction(
-                                                label='購買連結',
-                                                uri=url[0]
-                                            )
-                                        ]
-                                    )
-                                ]
-                            )
-                        )
-                    )
-
+                    
               
         return HttpResponse()
     else:
