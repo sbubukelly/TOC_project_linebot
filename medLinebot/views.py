@@ -159,6 +159,7 @@ def callback(request):
                         name = []
                         price = []
                         img = []
+                        url = []
                         temp = []
                         temp=cosmetic.scrape()
                         for items in temp:
@@ -167,6 +168,7 @@ def callback(request):
                             name.append(item[1])
                             price.append(item[2])
                             img.append(item[3])
+                            url.append(item[4])
                         
                         line_bot_api.reply_message(  
                             event.reply_token,
@@ -180,8 +182,8 @@ def callback(request):
                                             text=price[9],        #price 
                                             actions=[
                                                 URITemplateAction(
-                                                    label='連結2',
-                                                    uri='http://example.com/2'
+                                                    label='購買連結',
+                                                    uri=url[9]
                                                 )
                                             ]
                                         ),
@@ -191,8 +193,8 @@ def callback(request):
                                             text=price[8],        #price 
                                             actions=[
                                                 URITemplateAction(
-                                                    label='連結2',
-                                                    uri='http://example.com/2'
+                                                    label='購買連結',
+                                                    uri=url[8]
                                                 )
                                             ]
                                         )

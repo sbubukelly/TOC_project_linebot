@@ -51,7 +51,7 @@ class MyBest(Cosmetic):
         rank = ''
         price = ''
         img_url = ''
-        #url =[]
+        url =''
         temp = ''
         temp2 = ''
         first = 0
@@ -69,8 +69,8 @@ class MyBest(Cosmetic):
  
             price=card.find( "p", {"class": "c-panel__price"}).getText()
 
-            #temp = card.find("li")
-            #url.append(temp.find("a").get("href"))
+            temp = card.find("li")
+            url=temp.find("a").get("href")
 
             temp = card.find("img")
             if(temp != None):
@@ -85,7 +85,7 @@ class MyBest(Cosmetic):
                     second = temp2.find("jpg")+3
                     img_url=temp[first:first+second]
 
-            content =brand + "|" + name + "|" + price + "|" + img_url 
+            content =brand + "|" + name + "|" + price + "|" + img_url +"|"+url
             contents.append(content)
         '''   
         if(element == 'brand'):
