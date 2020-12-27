@@ -59,17 +59,14 @@ def callback(request):
                                     ),
                                     PostbackTemplateAction(
                                         label='口紅',
-                                        text='lipstick',
                                         data='A&lipstick'
                                     ),
                                     PostbackTemplateAction(
                                         label='腮紅',
-                                        text='blush',
                                         data='A&blush'
                                     ),
                                     PostbackTemplateAction(
                                         label='更多',
-                                        text='更多',
                                         data='p1&more'
                                     )
 
@@ -94,22 +91,18 @@ def callback(request):
                                     actions=[
                                         PostbackTemplateAction(
                                             label='眉筆',
-                                            text='eyebrow',
                                             data='A&eyebrow'
                                         ),
                                         PostbackTemplateAction(
                                             label='眼影盤',
-                                            text='palette',
                                             data='A&palette'
                                         ),
                                         PostbackTemplateAction(
                                             label='蜜粉餅',
-                                            text='PrPowder',
                                             data='A&PrPowder'
                                         ),
                                         PostbackTemplateAction(
                                             label='更多',
-                                            text='更多',
                                             data='p2&more'
                                         )
 
@@ -131,22 +124,18 @@ def callback(request):
                                     actions=[
                                         PostbackTemplateAction(
                                             label='修容',
-                                            text='contour',
                                             data='A&contour'
                                         ),
                                         PostbackTemplateAction(
                                             label='睫毛膏',
-                                            text='mascara',
                                             data='x&mascara'
                                         ),
                                         PostbackTemplateAction(
                                             label='眼線',
-                                            text='eyeliner',
                                             data='y&eyeliner'
                                         ),
                                         PostbackTemplateAction(
                                             label='遮瑕',
-                                            text='concealer',
                                             data='z&concealer'
                                         )
                                     ]
@@ -167,12 +156,10 @@ def callback(request):
                                     actions=[
                                         PostbackTemplateAction(
                                             label='纖長型睫毛膏',
-                                            text='纖長型睫毛膏',
                                             data='m1&mascara'
                                         ),
                                         PostbackTemplateAction(
                                             label='濃密型睫毛膏',
-                                            text='濃密型遮瑕膏',
                                             data='m2&mascara'
                                         )
 
@@ -194,12 +181,10 @@ def callback(request):
                                     actions=[
                                         PostbackTemplateAction(
                                             label='眼線液',
-                                            text='眼線液',
                                             data='m1&eyeliner'
                                         ),
                                         PostbackTemplateAction(
                                             label='眼線鉛筆',
-                                            text='眼線鉛筆',
                                             data='m2&eyeliner'
                                         )
 
@@ -221,12 +206,10 @@ def callback(request):
                                     actions=[
                                         PostbackTemplateAction(
                                             label='黑眼圈遮瑕膏',
-                                            text='黑眼圈遮瑕膏',
                                             data='m1&concealer'
                                         ),
                                         PostbackTemplateAction(
                                             label='黑斑遮瑕膏',
-                                            text='黑斑遮瑕膏',
                                             data='m2&concealer'
                                         )
 
