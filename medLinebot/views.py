@@ -136,23 +136,104 @@ def callback(request):
                                         PostbackTemplateAction(
                                             label='睫毛膏',
                                             text='mascara',
-                                            data='B&mascara'
+                                            data='x&mascara'
                                         ),
                                         PostbackTemplateAction(
                                             label='眼線',
                                             text='eyeliner',
-                                            data='B&eyeliner'
+                                            data='y&eyeliner'
                                         ),
                                         PostbackTemplateAction(
                                             label='遮瑕',
                                             text='concealer',
-                                            data='B&concealer'
+                                            data='z&concealer'
                                         )
                                     ]
                                 )
                             )
                         )
  
+                elif event.postback.data[0:1] == "x":
+                    line_bot_api.reply_message(  
+                            event.reply_token,
+                            TemplateSendMessage(
+                                alt_text='Buttons template',
+                                template=ButtonsTemplate(
+                                    thumbnail_image_url='https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=765&q=80',
+                                    image_aspect_ratio= "rectangle",
+                                    image_size="cover",
+                                    text='請選擇種類',
+                                    actions=[
+                                        PostbackTemplateAction(
+                                            label='纖長型睫毛膏',
+                                            text='纖長型睫毛膏',
+                                            data='x1&mascara'
+                                        ),
+                                        PostbackTemplateAction(
+                                            label='濃密型睫毛膏',
+                                            text='濃密型遮瑕膏',
+                                            data='x2&mascara'
+                                        )
+
+                                    ]
+                                )
+                            )
+                        )    
+        
+                elif event.postback.data[0:1] == "y":
+                    line_bot_api.reply_message(  
+                            event.reply_token,
+                            TemplateSendMessage(
+                                alt_text='Buttons template',
+                                template=ButtonsTemplate(
+                                    thumbnail_image_url='https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=765&q=80',
+                                    image_aspect_ratio= "rectangle",
+                                    image_size="cover",
+                                    text='請選擇種類',
+                                    actions=[
+                                        PostbackTemplateAction(
+                                            label='眼線液',
+                                            text='眼線液',
+                                            data='y1&eyeliner'
+                                        ),
+                                        PostbackTemplateAction(
+                                            label='眼線鉛筆',
+                                            text='眼線鉛筆',
+                                            data='y1&eyeliner'
+                                        )
+
+                                    ]
+                                )
+                            )
+                        )    
+        
+                elif event.postback.data[0:1] == "z":
+                    line_bot_api.reply_message(  
+                            event.reply_token,
+                            TemplateSendMessage(
+                                alt_text='Buttons template',
+                                template=ButtonsTemplate(
+                                    thumbnail_image_url='https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=765&q=80',
+                                    image_aspect_ratio= "rectangle",
+                                    image_size="cover",
+                                    text='請選擇種類',
+                                    actions=[
+                                        PostbackTemplateAction(
+                                            label='黑眼圈遮瑕膏',
+                                            text='黑眼圈遮瑕膏',
+                                            data='z1&concealer'
+                                        ),
+                                        PostbackTemplateAction(
+                                            label='痘痘遮瑕膏',
+                                            text='痘痘遮瑕膏',
+                                            data='z1&concealer'
+                                        )
+
+                                    ]
+                                )
+                            )
+                        )    
+        
                 elif event.postback.data[0:1] == "A":
                         cosmetic = MyBest(event.postback.data[2:])  #使用者傳入的訊息文字
                         brand = []
@@ -189,7 +270,7 @@ def callback(request):
                                         ),
                                         CarouselColumn(
                                             thumbnail_image_url=img[8],
-                                            title=  "1."+"\n" +brand[8]+"\n"+name[8],      #rank + brand + name
+                                            title=  "2."+"\n" +brand[8]+"\n"+name[8],      #rank + brand + name
                                             text=price[8],        #price 
                                             actions=[
                                                 URITemplateAction(
@@ -203,8 +284,105 @@ def callback(request):
                             )
                         )
                
-                # elif event.postback.data[0:1] == "B":
+                elif event.postback.data[0:2] == "x1":
+                    cosmetic = MyBest(event.postback.data[3:])  #使用者傳入的訊息文字
+                    brand = []
+                    name = []
+                    price = []
+                    img = []
+                    url = []
+                    temp = []
+                    temp=cosmetic.scrape()
+                    for items in temp:
+                        item = items.split("|")
+                        brand.append(item[0])
+                        name.append(item[1])
+                        price.append(item[2])
+                        img.append(item[3])
+                        url.append(item[4])
+                        
+                    line_bot_api.reply_message(  
+                        event.reply_token,
+                        TemplateSendMessage(
+                            alt_text='carousel template',
+                            template=CarouselTemplate(
+                                  columns=[
+                                    CarouselColumn(
+                                    thumbnail_image_url=img[9],
+                                        title=  "1."+"\n" +brand[9]+"\n"+name[9],      #rank + brand + name
+                                        text=price[9],        #price 
+                                        actions=[
+                                            URITemplateAction(
+                                                label='購買連結',
+                                                uri=url[9]
+                                            )
+                                        ]
+                                    ),
+                                    CarouselColumn(
+                                        thumbnail_image_url=img[8],
+                                        title=  "2."+"\n" +brand[8]+"\n"+name[8],      #rank + brand + name
+                                        text=price[8],        #price 
+                                        actions=[
+                                            URITemplateAction(
+                                                label='購買連結',
+                                                uri=url[8]
+                                            )
+                                        ]
+                                    )
+                                ]
+                            )
+                        )
+                    )
 
+                elif event.postback.data[0:2] == "x2":
+                    cosmetic = MyBest(event.postback.data[3:])  #使用者傳入的訊息文字
+                    brand = []
+                    name = []
+                    price = []
+                    img = []
+                    url = []
+                    temp = []
+                    temp=cosmetic.scrape()
+                    for items in temp:
+                        item = items.split("|")
+                        brand.append(item[0])
+                        name.append(item[1])
+                        price.append(item[2])
+                        img.append(item[3])
+                        url.append(item[4])
+                        
+                    line_bot_api.reply_message(  
+                        event.reply_token,
+                        TemplateSendMessage(
+                            alt_text='carousel template',
+                            template=CarouselTemplate(
+                                  columns=[
+                                    CarouselColumn(
+                                    thumbnail_image_url=img[4],
+                                        title=  "1."+"\n" +brand[4]+"\n"+name[4],      #rank + brand + name
+                                        text=price[4],        #price 
+                                        actions=[
+                                            URITemplateAction(
+                                                label='購買連結',
+                                                uri=url[4]
+                                            )
+                                        ]
+                                    ),
+                                    CarouselColumn(
+                                        thumbnail_image_url=img[3],
+                                        title=  "2."+"\n" +brand[8]+"\n"+name[3],      #rank + brand + name
+                                        text=price[3],        #price 
+                                        actions=[
+                                            URITemplateAction(
+                                                label='購買連結',
+                                                uri=url[3]
+                                            )
+                                        ]
+                                    )
+                                ]
+                            )
+                        )
+                    )
 
               
         return HttpResponse()
