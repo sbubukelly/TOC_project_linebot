@@ -153,7 +153,6 @@ def callback(request):
                 
             elif event.postback.data[0:1] == "A":
                     cosmetic = MyBest(event.postback.data[2:])  #使用者傳入的訊息文字
-                    rank = []
                     brand = []
                     name = []
                     price = []
@@ -161,12 +160,11 @@ def callback(request):
                     temp = []
                     temp=cosmetic.scrape()
                     for items in temp:
-                        item = items.split(",")
-                        rank.append(item[0])
-                        brand.append(item[1])
-                        name.append(item[2])
-                        price.append(item[3])
-                        img.append(item[4])
+                        item = items.split("|")
+                        brand.append(item[0])
+                        name.append(item[1])
+                        price.append(item[2])
+                        img.append(item[3])
                     '''
                     line_bot_api.reply_message(  
                         event.reply_token,
@@ -181,7 +179,7 @@ def callback(request):
                                 columns=[
                                     CarouselColumn(
                                         thumbnail_image_url=img[9],
-                                        title= rank[9] +"."+"\n" +name[9],      #rank + brand + name
+                                        title=  "1."+"\n" +name[9],      #rank + brand + name
                                         text=price[9],        #price 
                                         actions=[
                                             PostbackTemplateAction(

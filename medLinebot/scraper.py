@@ -57,16 +57,12 @@ class MyBest(Cosmetic):
         first = 0
         second = 0
         for card in cards:
+            
             temp = card.find("div",{"class": "c-badge-rank--default"})
-            if(temp == None):
-                temp = card.find("div",{"class": "c-badge-rank--bronze"})
-                if(temp == None):
-                    temp = card.find("div",{"class": "c-badge-rank--silver"})
-                    if(temp == None):
-                        temp = card.find("div",{"class": "c-badge-rank--gold"})
-            elif(temp.getText() == "PR"):
-                continue
-            rank=temp.getText()
+            if(temp != None):
+                if(temp.getText() == "PR"):
+                    continue
+            
             #print(rank)
             name=card.find("span",{"class": "c-panel__heading"}).getText()
             brand=card.find("span",{"class": "c-panel__sub-text"}).getText()
@@ -78,8 +74,8 @@ class MyBest(Cosmetic):
 
             temp = card.find("img")
             if(temp != None):
-                temp = temp.get("data-original")
-                img_url=temp
+                img_url=temp.get("data-original")
+                print(img_url)
             elif(temp == None):
                 temp = card.find("div",{"class":"carousel"})
                 if(temp!=None):
@@ -88,7 +84,8 @@ class MyBest(Cosmetic):
                     temp2 = temp[first:]
                     second = temp2.find("jpg")+3
                     img_url=temp[first:first+second]
-            content = rank + ","+brand + "," + name + "," + price + "," + img_url 
+
+            content =brand + "|" + name + "|" + price + "|" + img_url 
             contents.append(content)
         '''   
         if(element == 'brand'):
@@ -116,13 +113,13 @@ name = []
 price = []
 img = []
 for items in temp:
-    item = items.split(",")
-    rank.append(item[0])
-    brand.append(item[1])
-    name.append(item[2])
-    price.append(item[3])
-    img.append(item[4])
-print(name)
+    item = items.split("|")
+    #print(item)
+    brand.append(item[0])
+    name.append(item[1])
+    price.append(item[2])
+    img.append(item[3])
+print(img)
 '''
 print(cosmetic.scrape('brand')[9] + "\n")
 print(cosmetic.scrape('name')[9] + "\n")
