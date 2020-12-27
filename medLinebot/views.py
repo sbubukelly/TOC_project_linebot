@@ -172,7 +172,7 @@ def callback(request):
                                         actions=[
                                             URITemplateAction(
                                                 label='購買連結',
-                                                uri=print(cosmetic.scrape('url')[9] + "\n")
+                                                uri=cosmetic.scrape('url')[9]
                                             )
                                         ]
                                     ),
