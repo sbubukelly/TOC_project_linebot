@@ -50,6 +50,7 @@ class MyBest(Cosmetic):
         rank = []
         price = []
         img_url = []
+        url =[]
         temp = ''
         temp2 = ''
         first = 0
@@ -70,7 +71,10 @@ class MyBest(Cosmetic):
             brand.append(card.find("span",{"class": "c-panel__sub-text"}).getText())
  
             price.append(card.find( "p", {"class": "c-panel__price"}).getText())
- 
+
+            temp = card.find("li")
+            url.append(temp.find("a").get("href"))
+
             temp = card.find("img")
             if(temp != None):
                 temp = temp.get("data-original")
@@ -94,11 +98,12 @@ class MyBest(Cosmetic):
             return rank
         elif(element == 'img'):
             return img_url
-        else:
-            return content
+        elif(element == 'url'):
+            return url
  
 cosmetic = MyBest("foundation")
 print(cosmetic.scrape('brand')[9] + "\n")
 print(cosmetic.scrape('name')[9] + "\n")
 print(cosmetic.scrape('price')[9] + "\n")
 print(cosmetic.scrape('img')[9] + "\n")
+print(cosmetic.scrape('url')[9] + "\n")
