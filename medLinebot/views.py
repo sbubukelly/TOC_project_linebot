@@ -167,7 +167,7 @@ def callback(request):
                             template=CarouselTemplate(
                                 columns=[
                                     CarouselColumn(
-                                        thumbnail_image_url=cosmetic.scrape('img')[9],
+                                        thumbnail_image_url="https://img.my-best.tw/press_component/item_part_images/cdf9bed61f29e4dd8090bb0eb79b74f3.jpg?ixlib=rails-3.1.0\u0026auto=compress\u0026q=70\u0026lossless=0\u0026w=640\u0026h=640\u0026fit=clip",
                                         title= cosmetic.scrape('rank')[9] +"."+"\n" +cosmetic.scrape('name')[9],      #rank + brand + name
                                         text=cosmetic.scrape('price')[9],        #price 
                                         actions=[
