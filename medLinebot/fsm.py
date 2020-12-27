@@ -10,8 +10,13 @@ class TocMachine(object):
         self.get_graph().draw('my_state_diagram.png', prog='dot')
 
 machine = TocMachine(
-    states=["user", "Menu1", "Menu2","Menu3","subMenu","rank"],
+    states=["user", "Menu1", "Menu2","Menu3","subMenu","rank","purchase_link"],
     transitions=[
+        {
+            "trigger": "is_going_to_Menu1",
+            "source": "user",
+            "dest": "Menu1",
+        },
         {
             "trigger": "is_going_to_Menu2",
             "source": "Menu1",
@@ -27,9 +32,13 @@ machine = TocMachine(
             "source": "Menu3",
             "dest": "subMenu",
         },
+        {
+            "trigger": "is_going_to_purchase_link",
+            "source": "rank",
+            "dest": "purchase_link",
+        },
         {"trigger": "is_going_to_rank", "source": ["Menu1", "Menu2","Menu3","subMenu"], "dest": "rank"},
-        {"trigger": "go_back", "source": ["Menu1", "Menu2","Menu3","subMenu","rank"], "dest": "user"},
-        {"trigger": "go_to_main_menu", "source": ["user","Menu1", "Menu2","Menu3","subMenu","rank"], "dest": "Menu1"},
+        {"trigger": "go_back", "source": ["Menu1", "Menu2","Menu3","subMenu","rank","purchase_link"], "dest": "user"}
     ],
     initial="user",
     auto_transitions=False,

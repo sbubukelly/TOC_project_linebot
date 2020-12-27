@@ -80,7 +80,7 @@ def callback(request):
                     )
                 else:
                     line_bot_api.reply_message(event.reply_token,
-                        TextSendMessage(text="輸入「目錄」來選取想知道的品項排行歐!(moon grin)(moon grin)"))
+                        TextSendMessage(text="輸入「目錄」來選取想知道的品項排行歐!"))
             if isinstance(event, PostbackEvent):       
                 if event.postback.data[0:2] == "p1":  
                     line_bot_api.reply_message(  
