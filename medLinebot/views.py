@@ -152,8 +152,7 @@ def callback(request):
                                 )
                             )
                         )
-
-                '''    
+ 
                 elif event.postback.data[0:1] == "A":
                         cosmetic = MyBest(event.postback.data[2:])  #使用者傳入的訊息文字
                         brand = []
@@ -191,7 +190,7 @@ def callback(request):
                                 )
                             )
                         )
-                '''
+               
                 # elif event.postback.data[0:1] == "B":
 
 
