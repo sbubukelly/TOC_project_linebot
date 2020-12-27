@@ -179,10 +179,20 @@ def callback(request):
                                             title=  "1."+"\n" +brand[9]+"\n"+name[9],      #rank + brand + name
                                             text=price[9],        #price 
                                             actions=[
-                                                PostbackTemplateAction(
-                                                    label='postback1',
-                                                    text='postback text1',
-                                                    data='action=buy&itemid=1'
+                                                URITemplateAction(
+                                                    label='連結2',
+                                                    uri='http://example.com/2'
+                                                )
+                                            ]
+                                        ),
+                                        CarouselColumn(
+                                            thumbnail_image_url=img[8],
+                                            title=  "1."+"\n" +brand[8]+"\n"+name[8],      #rank + brand + name
+                                            text=price[8],        #price 
+                                            actions=[
+                                                URITemplateAction(
+                                                    label='連結2',
+                                                    uri='http://example.com/2'
                                                 )
                                             ]
                                         )
