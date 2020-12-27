@@ -175,7 +175,7 @@ def callback(request):
                                 template=CarouselTemplate(
                                     columns=[
                                         CarouselColumn(
-                                            #thumbnail_image_url=img[9],
+                                            thumbnail_image_url=img[9],
                                             title=  "1."+"\n" +brand[9]+"\n"+name[9],      #rank + brand + name
                                             text=price[9],        #price 
                                             actions=[
