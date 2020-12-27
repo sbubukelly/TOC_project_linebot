@@ -25,7 +25,8 @@
 在按下購買連結的話就會跳到商品購買連結
 
 ## FSM
-![](https://i.imgur.com/e5tIArQ.png)
+![](https://i.imgur.com/ZZwNvm0.png)
+
 
 
 
