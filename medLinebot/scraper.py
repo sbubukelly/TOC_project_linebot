@@ -74,6 +74,7 @@ class MyBest(Cosmetic):
             temp = card.find("img")
             if(temp != None):
                 temp = temp.get("data-original")
+                img_url.append(temp)
             elif(temp == None):
                 temp = card.find("div",{"class":"c-panel__left","class":"carousel"})
                 if(temp!=None):
@@ -81,7 +82,7 @@ class MyBest(Cosmetic):
                     first = temp.find("https://img.") 
                     temp2 = temp[first:]
                     second = temp2.find("clip") + 4
-            img_url.append(temp[first:second])
+                    img_url.append(temp[first:second])
             # expalin = card.find(  ).getText()
             info = card.select('tr')
             #content += f"{name} \n{price}\n\n"
@@ -109,7 +110,7 @@ class MyBest(Cosmetic):
             return content
  
 cosmetic = MyBest("foundation")
-print(cosmetic.scrape('brand')[5] + "\n")
-print(cosmetic.scrape('name')[5] + "\n")
-print(cosmetic.scrape('price')[5] + "\n")
-print(cosmetic.scrape('img')[5] + "\n")
+print(cosmetic.scrape('brand')[9] + "\n")
+print(cosmetic.scrape('name')[9] + "\n")
+print(cosmetic.scrape('price')[9] + "\n")
+print(cosmetic.scrape('img')[9] + "\n")
