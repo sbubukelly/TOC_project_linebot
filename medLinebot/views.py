@@ -167,7 +167,7 @@ def callback(request):
                             template=CarouselTemplate(
                                 columns=[
                                     CarouselColumn(
-                                        thumbnail_image_url='顯示在開頭的大圖片網址',
+                                        thumbnail_image_url='https://img.my-best.tw/press_component/item_part_images/4f61699984ff55363903add35f55549a.jpg?ixlib=rails-3.1.0\u0026auto=compress\u0026q=70\u0026lossless=0\u0026w=640\u0026h=640\u0026fit=clip',
                                         title='this is menu1',
                                         text='description1',
                                         actions=[
