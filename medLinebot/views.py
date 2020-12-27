@@ -167,12 +167,12 @@ def callback(request):
                                         PostbackTemplateAction(
                                             label='纖長型睫毛膏',
                                             text='纖長型睫毛膏',
-                                            data='x1&mascara'
+                                            data='m1&mascara'
                                         ),
                                         PostbackTemplateAction(
                                             label='濃密型睫毛膏',
                                             text='濃密型遮瑕膏',
-                                            data='x2&mascara'
+                                            data='m2&mascara'
                                         )
 
                                     ]
@@ -284,7 +284,7 @@ def callback(request):
                             )
                         )
                
-                elif event.postback.data[0:2] == "x1":
+                elif event.postback.data[0:2] == "m1":
                     cosmetic = MyBest(event.postback.data[3:])  #使用者傳入的訊息文字
                     brand = []
                     name = []
@@ -334,7 +334,7 @@ def callback(request):
                         )
                     )
 
-                elif event.postback.data[0:2] == "x2":
+                elif event.postback.data[0:2] == "m2":
                     cosmetic = MyBest(event.postback.data[3:])  #使用者傳入的訊息文字
                     brand = []
                     name = []
