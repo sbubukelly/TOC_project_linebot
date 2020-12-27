@@ -167,10 +167,11 @@ def callback(request):
                         price.append(item[2])
                         img.append(item[3])
                     '''
+                    '''
                     line_bot_api.reply_message(  
                         event.reply_token,
                         TextSendMessage(text=cosmetic.scrape())
-                    )
+                    )'''
                     '''
                     line_bot_api.reply_message(  
                         event.reply_token,
