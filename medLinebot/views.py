@@ -172,7 +172,7 @@ def callback(request):
                                         actions=[
                                             URITemplateAction(
                                                 label='購買連結',
-                                                uri="https://www.momoshop.com.tw/search/searchShop.jsp?keyword=Bobbi%20Brown%20%E8%8A%AD%E6%AF%94%E5%B8%83%E6%9C%97%E3%80%91%E9%AB%98%E4%BF%9D%E6%BF%95%E4%BF%AE%E8%AD%B7%E7%B2%BE%E8%8F%AF%E7%B2%89%E5%BA%95-%E5%8D%87%E7%B4%9A%E7%89%88&searchType=1&curPage=1&_isFuzzy=0&showType=chessboardType&osm=Ad23&utm_source=CPA&utm_medium=mybest"
+                                                uri="http://example.com/2"
                                             )
                                         ]
                                     ),
