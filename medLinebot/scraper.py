@@ -81,8 +81,8 @@ class MyBest(Cosmetic):
                     temp= temp.get("data-images")
                     first = temp.find("https://img.") 
                     temp2 = temp[first:]
-                    second = temp2.find("clip") + 4
-                    img_url.append(temp[first:second])
+                    second = temp2.find("clip")+4
+                    img_url.append(temp[first:first+second])
             # expalin = card.find(  ).getText()
             info = card.select('tr')
             #content += f"{name} \n{price}\n\n"

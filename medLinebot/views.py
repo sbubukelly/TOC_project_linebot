@@ -102,7 +102,7 @@ def callback(request):
                                     ),
                                     PostbackTemplateAction(
                                         label='蜜粉餅',
-                                        text='PrPoweder',
+                                        text='PrPowder',
                                         data='A&PrPowder'
                                     ),
                                     PostbackTemplateAction(
@@ -167,8 +167,8 @@ def callback(request):
                             template=CarouselTemplate(
                                 columns=[
                                     CarouselColumn(
-                                        thumbnail_image_url="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1065&q=80",
-                                        title= cosmetic.scrape('rank')[9] + "\n" +cosmetic.scrape('name')[9],      #rank + brand + name
+                                        thumbnail_image_url=cosmetic.scrape('img')[9],
+                                        title= cosmetic.scrape('rank')[9] +"."+"\n" +cosmetic.scrape('name')[9],      #rank + brand + name
                                         text=cosmetic.scrape('price')[9],        #price 
                                         actions=[
                                             PostbackTemplateAction(
