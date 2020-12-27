@@ -39,50 +39,49 @@ def callback(request):
             return HttpResponseBadRequest()
  
         for event in events:
-            if isinstance(event, MessageEvent):  # 如果有訊息事件
-                
-                if event.message.text == "開始":
+            if (isinstance(event, MessageEvent)):  # 如果有訊息事件
+                if not isinstance(event, PostbackEvent):
+                    if event.message.text == "開始":
+                        line_bot_api.reply_message(  
+                            event.reply_token,
+                            TemplateSendMessage(
+                                alt_text='Buttons template',
+                                template=ButtonsTemplate(
+                                    thumbnail_image_url='https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=765&q=80',
+                                    image_aspect_ratio='rectangle',
+                                    image_size="cover",
+                                    text='請選擇種類',
+                                    actions=[
+                                        PostbackTemplateAction(
+                                            label='粉底',
+                                            text='foundation',
+                                            data='A&foundation'
+                                        ),
+                                        PostbackTemplateAction(
+                                            label='口紅',
+                                            text='lipstick',
+                                            data='A&lipstick'
+                                        ),
+                                        PostbackTemplateAction(
+                                            label='腮紅',
+                                            text='blush',
+                                            data='A&blush'
+                                        ),
+                                        PostbackTemplateAction(
+                                            label='更多',
+                                            text='更多',
+                                            data='p1&more'
+                                        )
 
-                    line_bot_api.reply_message(  
-                        event.reply_token,
-                        TemplateSendMessage(
-                            alt_text='Buttons template',
-                            template=ButtonsTemplate(
-                                thumbnail_image_url='https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=765&q=80',
-                                image_aspect_ratio='rectangle',
-                                image_size="cover",
-                                text='請選擇種類',
-                                actions=[
-                                    PostbackTemplateAction(
-                                        label='粉底',
-                                        text='foundation',
-                                        data='A&foundation'
-                                    ),
-                                    PostbackTemplateAction(
-                                        label='口紅',
-                                        text='lipstick',
-                                        data='A&lipstick'
-                                    ),
-                                    PostbackTemplateAction(
-                                        label='腮紅',
-                                        text='blush',
-                                        data='A&blush'
-                                    ),
-                                    PostbackTemplateAction(
-                                        label='更多',
-                                        text='更多',
-                                        data='p1&more'
-                                    )
-
-                                ]
+                                    ]
+                                )
                             )
                         )
-                    )
-                else:
-                    line_bot_api.reply_message(  
-                        event.reply_token,
-                        TextSendMessage(text="輸入「開始」獲得目錄歐!")
-                    )
+                    else:
+                        line_bot_api.reply_message(  
+                            event.reply_token,
+                            TextSendMessage(text="輸入「開始」獲得目錄歐!")
+                        )
 
             elif event.postback.data[0:2] == "p1":  
                 line_bot_api.reply_message(  
@@ -172,7 +171,7 @@ def callback(request):
                             template=CarouselTemplate(
                                 columns=[
                                     CarouselColumn(
-                                        thumbnail_image_url=cosmetic.scrape('img')[9],
+                                        thumbnail_image_url=cosmetic.scrape('img')[5],
                                         title= cosmetic.scrape('rank')[9] +"."+"\n" +cosmetic.scrape('name')[9],      #rank + brand + name
                                         text=cosmetic.scrape('price')[9],        #price 
                                         actions=[
