@@ -153,6 +153,20 @@ def callback(request):
                 
             elif event.postback.data[0:1] == "A":
                     cosmetic = MyBest(event.postback.data[2:])  #使用者傳入的訊息文字
+                    rank = []
+                    brand = []
+                    name = []
+                    price = []
+                    img = []
+                    temp = []
+                    temp=cosmetic.scrape()
+                    for items in temp:
+                        item = items.split(",")
+                        rank.append(item[0])
+                        brand.append(item[1])
+                        name.append(item[2])
+                        price.append(item[3])
+                        img.append(item[4])
                     '''
                     line_bot_api.reply_message(  
                         event.reply_token,
@@ -166,117 +180,9 @@ def callback(request):
                             template=CarouselTemplate(
                                 columns=[
                                     CarouselColumn(
-                                        thumbnail_image_url=cosmetic.scrape('img')[9],
-                                        title= cosmetic.scrape('rank')[9] +"."+"\n" +cosmetic.scrape('name')[9],      #rank + brand + name
-                                        text=cosmetic.scrape('price')[9],        #price 
-                                        actions=[
-                                            PostbackTemplateAction(
-                                                label='postback1',
-                                                text='postback text1',
-                                                data='action=buy&itemid=1'
-                                            )
-                                        ]
-                                    ),
-                                    CarouselColumn(
-                                        thumbnail_image_url=cosmetic.scrape('img')[8],
-                                        title= cosmetic.scrape('rank')[8] +"."+"\n" +cosmetic.scrape('name')[8],      #rank + brand + name
-                                        text=cosmetic.scrape('price')[8],        #price 
-                                        actions=[
-                                            PostbackTemplateAction(
-                                                label='postback1',
-                                                text='postback text1',
-                                                data='action=buy&itemid=1'
-                                            )
-                                        ]
-                                    ),
-                                    CarouselColumn(
-                                        thumbnail_image_url=cosmetic.scrape('img')[7],
-                                        title= cosmetic.scrape('rank')[7] +"."+"\n" +cosmetic.scrape('name')[7],      #rank + brand + name
-                                        text=cosmetic.scrape('price')[7],        #price 
-                                        actions=[
-                                            PostbackTemplateAction(
-                                                label='postback1',
-                                                text='postback text1',
-                                                data='action=buy&itemid=1'
-                                            )
-                                        ]
-                                    ),
-                                    CarouselColumn(
-                                        thumbnail_image_url=cosmetic.scrape('img')[6],
-                                        title= cosmetic.scrape('rank')[6] +"."+"\n" +cosmetic.scrape('name')[6],      #rank + brand + name
-                                        text=cosmetic.scrape('price')[6],        #price 
-                                        actions=[
-                                            PostbackTemplateAction(
-                                                label='postback1',
-                                                text='postback text1',
-                                                data='action=buy&itemid=1'
-                                            )
-                                        ]
-                                    ),
-                                    CarouselColumn(
-                                        thumbnail_image_url=cosmetic.scrape('img')[5],
-                                        title= cosmetic.scrape('rank')[5] +"."+"\n" +cosmetic.scrape('name')[5],      #rank + brand + name
-                                        text=cosmetic.scrape('price')[5],        #price 
-                                        actions=[
-                                            PostbackTemplateAction(
-                                                label='postback1',
-                                                text='postback text1',
-                                                data='action=buy&itemid=1'
-                                            )
-                                        ]
-                                    ),
-                                    CarouselColumn(
-                                        thumbnail_image_url=cosmetic.scrape('img')[4],
-                                        title= cosmetic.scrape('rank')[4] +"."+"\n" +cosmetic.scrape('name')[4],      #rank + brand + name
-                                        text=cosmetic.scrape('price')[4],        #price 
-                                        actions=[
-                                            PostbackTemplateAction(
-                                                label='postback1',
-                                                text='postback text1',
-                                                data='action=buy&itemid=1'
-                                            )
-                                        ]
-                                    ),
-                                    CarouselColumn(
-                                        thumbnail_image_url=cosmetic.scrape('img')[3],
-                                        title= cosmetic.scrape('rank')[3] +"."+"\n" +cosmetic.scrape('name')[93],      #rank + brand + name
-                                        text=cosmetic.scrape('price')[3],        #price 
-                                        actions=[
-                                            PostbackTemplateAction(
-                                                label='postback1',
-                                                text='postback text1',
-                                                data='action=buy&itemid=1'
-                                            )
-                                        ]
-                                    ),
-                                    CarouselColumn(
-                                        thumbnail_image_url=cosmetic.scrape('img')[2],
-                                        title= cosmetic.scrape('rank')[2] +"."+"\n" +cosmetic.scrape('name')[2],      #rank + brand + name
-                                        text=cosmetic.scrape('price')[2],        #price 
-                                        actions=[
-                                            PostbackTemplateAction(
-                                                label='postback1',
-                                                text='postback text1',
-                                                data='action=buy&itemid=1'
-                                            )
-                                        ]
-                                    ),
-                                    CarouselColumn(
-                                        thumbnail_image_url=cosmetic.scrape('img')[1],
-                                        title= cosmetic.scrape('rank')[1] +"."+"\n" +cosmetic.scrape('name')[1],      #rank + brand + name
-                                        text=cosmetic.scrape('price')[1],        #price 
-                                        actions=[
-                                            PostbackTemplateAction(
-                                                label='postback1',
-                                                text='postback text1',
-                                                data='action=buy&itemid=1'
-                                            )
-                                        ]
-                                    ),
-                                    CarouselColumn(
-                                        thumbnail_image_url=cosmetic.scrape('img')[0],
-                                        title= cosmetic.scrape('rank')[0] +"."+"\n" +cosmetic.scrape('name')[0],      #rank + brand + name
-                                        text=cosmetic.scrape('price')[0],        #price 
+                                        thumbnail_image_url=img[9],
+                                        title= rank[9] +"."+"\n" +name[9],      #rank + brand + name
+                                        text=price[9],        #price 
                                         actions=[
                                             PostbackTemplateAction(
                                                 label='postback1',

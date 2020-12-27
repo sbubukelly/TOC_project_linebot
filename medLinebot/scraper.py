@@ -16,7 +16,7 @@ class Cosmetic(ABC):
  
 # My best爬蟲
 class MyBest(Cosmetic):
-    def scrape(self, element):
+    def scrape(self):
         convert = ''
         if(self.type == "foundation"):
             convert = '131'
@@ -45,12 +45,13 @@ class MyBest(Cosmetic):
         
         cards = soup.find_all('div', {'class': 'p-press__part js-parts','data-type':'item_part'})
         content = ""
-        name =[]
-        brand = []
-        rank = []
-        price = []
-        img_url = []
-        url =[]
+        contents = []
+        name =''
+        brand = ''
+        rank = ''
+        price = ''
+        img_url = ''
+        #url =[]
         temp = ''
         temp2 = ''
         first = 0
@@ -65,20 +66,20 @@ class MyBest(Cosmetic):
                         temp = card.find("div",{"class": "c-badge-rank--gold"})
             elif(temp.getText() == "PR"):
                 continue
-            rank.append(temp.getText())
+            rank=temp.getText()
             #print(rank)
-            name.append(card.find("span",{"class": "c-panel__heading"}).getText())
-            brand.append(card.find("span",{"class": "c-panel__sub-text"}).getText())
+            name=card.find("span",{"class": "c-panel__heading"}).getText()
+            brand=card.find("span",{"class": "c-panel__sub-text"}).getText()
  
-            price.append(card.find( "p", {"class": "c-panel__price"}).getText())
+            price=card.find( "p", {"class": "c-panel__price"}).getText()
 
-            temp = card.find("li")
-            url.append(temp.find("a").get("href"))
+            #temp = card.find("li")
+            #url.append(temp.find("a").get("href"))
 
             temp = card.find("img")
             if(temp != None):
                 temp = temp.get("data-original")
-                img_url.append(temp)
+                img_url=temp
             elif(temp == None):
                 temp = card.find("div",{"class":"carousel"})
                 if(temp!=None):
@@ -86,8 +87,10 @@ class MyBest(Cosmetic):
                     first = temp.find("https://img.") 
                     temp2 = temp[first:]
                     second = temp2.find("jpg")+3
-                    img_url.append(temp[first:first+second])
-            
+                    img_url=temp[first:first+second]
+            content = rank + ","+brand + "," + name + "," + price + "," + img_url 
+            contents.append(content)
+        '''   
         if(element == 'brand'):
             return brand
         elif(element == 'name'):
@@ -100,10 +103,30 @@ class MyBest(Cosmetic):
             return img_url
         elif(element == 'url'):
             return url
- 
+        '''
+        
+        return contents 
+
 cosmetic = MyBest("foundation")
+#print(cosmetic.scrape())
+temp=cosmetic.scrape()
+rank = []
+brand = []
+name = []
+price = []
+img = []
+for items in temp:
+    item = items.split(",")
+    rank.append(item[0])
+    brand.append(item[1])
+    name.append(item[2])
+    price.append(item[3])
+    img.append(item[4])
+print(name)
+'''
 print(cosmetic.scrape('brand')[9] + "\n")
 print(cosmetic.scrape('name')[9] + "\n")
 print(cosmetic.scrape('price')[9] + "\n")
 print(cosmetic.scrape('img')[9] + "\n")
 print(cosmetic.scrape('url')[9] + "\n")
+'''
