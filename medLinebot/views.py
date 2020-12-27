@@ -55,7 +55,6 @@ def callback(request):
                                 actions=[
                                     PostbackTemplateAction(
                                         label='粉底',
-                                        text='foundation',
                                         data='A&foundation'
                                     ),
                                     PostbackTemplateAction(
