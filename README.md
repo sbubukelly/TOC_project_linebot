@@ -12,9 +12,13 @@
 ![](https://i.imgur.com/ZI16Wtk.jpg)
 ![](https://i.imgur.com/lXxnQlk.jpg)
 ![](https://i.imgur.com/BZ89vWn.jpg)
+
 總共有三個主目錄
+
 ![](https://i.imgur.com/ZsWTMgP.jpg)
+
 眼線、遮瑕跟睫毛膏有另外的一個小分類目錄
+
 ![](https://i.imgur.com/nrQTXB2.jpg)
 
 按下選項後會出現排行榜
