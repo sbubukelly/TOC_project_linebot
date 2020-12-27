@@ -170,9 +170,10 @@ def callback(request):
                                         title= cosmetic.scrape('rank')[9] +"."+"\n" +cosmetic.scrape('name')[9],      #rank + brand + name
                                         text=cosmetic.scrape('price')[9],        #price 
                                         actions=[
-                                            URITemplateAction(
-                                                label='購買連結',
-                                                uri="http://example.com/2"
+                                            PostbackTemplateAction(
+                                                label='postback1',
+                                                text='postback text1',
+                                                data='action=buy&itemid=1'
                                             )
                                         ]
                                     ),
