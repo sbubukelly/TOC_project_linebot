@@ -20,15 +20,14 @@ from linebot.models import (
     URITemplateAction
 )
 from .scraper import MyBest
-from fsm import TocMachine
+from transitions import Machine
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 parser = WebhookParser(settings.LINE_CHANNEL_SECRET)
 
-machine = TocMachine(
-    states=["user", "Menu1", "Menu2","Menu3","subMenu","rank","purchase_link","cancel"],
-    transitions=[
-        {
+states = [["user", "Menu1", "Menu2","Menu3","subMenu","rank","purchase_link","cancel"]
+transitions = [
+  {
             "trigger": "is_going_to_Menu1",
             "source": "user",
             "dest": "Menu1",
@@ -64,7 +63,9 @@ machine = TocMachine(
     initial="user",
     auto_transitions=False,
     show_conditions=True,
-)    
+]
+
+machine = Machine(states=states, transitions=transitions)
 
 @csrf_exempt
 def callback(request):
