@@ -77,11 +77,7 @@ def callback(request):
                                 )
                             )
                         )
-                    else:
-                        line_bot_api.reply_message(  
-                            event.reply_token,
-                            TextSendMessage(text="輸入「開始」獲得目錄歐!")
-                        )
+                    
 
             elif event.postback.data[0:2] == "p1":  
                 line_bot_api.reply_message(  
@@ -186,7 +182,12 @@ def callback(request):
                             )
                         )
                     )
-                
+
+            else:
+                line_bot_api.reply_message(  
+                    event.reply_token,
+                    TextSendMessage(text="輸入「開始」獲得目錄歐!")
+                )    
         return HttpResponse()
     else:
         return HttpResponseBadRequest()

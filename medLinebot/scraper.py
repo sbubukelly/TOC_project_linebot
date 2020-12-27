@@ -81,21 +81,9 @@ class MyBest(Cosmetic):
                     temp= temp.get("data-images")
                     first = temp.find("https://img.") 
                     temp2 = temp[first:]
-                    second = temp2.find("clip")+4
+                    second = temp2.find("jpg")+3
                     img_url.append(temp[first:first+second])
-            # expalin = card.find(  ).getText()
-            info = card.select('tr')
-            #content += f"{name} \n{price}\n\n"
-            #content += f"{rank.getText()}\n{name} \n{price}\n\n"
-            if(len(info) < 0):
-              pass
-            else:
-                for x in info: 
-                    content += f"{x.getText()}\n"
-   
-            content += "\n"
-            #content = f"{name} \n\n"
-            #print(content)
+            
         if(element == 'brand'):
             return brand
         elif(element == 'name'):
