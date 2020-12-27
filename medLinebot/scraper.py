@@ -76,7 +76,7 @@ class MyBest(Cosmetic):
                 temp = temp.get("data-original")
                 img_url.append(temp)
             elif(temp == None):
-                temp = card.find("div",{"class":"c-panel__left","class":"carousel"})
+                temp = card.find("div",{"class":"carousel"})
                 if(temp!=None):
                     temp= temp.get("data-images")
                     first = temp.find("https://img.") 
